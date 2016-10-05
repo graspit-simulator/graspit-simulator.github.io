@@ -19,10 +19,23 @@ sudo pip install sphinx
 Build new release:
 
 ```
+git clone git@github.com:graspit-simulator/graspit-simulator.github.io_src.git
+make whatever changes to the source that you would like
 make html
+git remote add build git@github.com:graspit-simulator/graspit-simulator.github.io.git
+rm -rf source 
+git rm -r source 
+git add build
+git commit -a "new build"
+git push build master
 ```
 
 Troubleshooting:
+
+If you want to view changes locally, run:
+```
+python -m SimpleHTTPServer 8080
+```
 
 If you get complaints about .sty files install the following
 
