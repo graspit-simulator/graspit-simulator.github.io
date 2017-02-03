@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GraspIt! Installation - Windows with MSys / MinGW &mdash; GraspIt! User Manual 2.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/override.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="GraspIt! User Manual 2.2 documentation" href="index.html"/>
+        <link rel="next" title="GraspIt! Installation - Ubuntu Linux with ROS" href="installation_ros.html"/>
+        <link rel="prev" title="GraspIt! Installation - Ubuntu Linux" href="installation_linux.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home">
+        
+
+          GraspIt! Manual
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-graspit-is">What GraspIt! is</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-graspit-is-not">What GraspIt! is NOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#about-this-manual">About this manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#troubleshooting-and-contact">Troubleshooting and contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#authors-and-acknowledgements">Authors and acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_linux.html">GraspIt! Installation - Ubuntu Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation_linux.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_linux.html#graspit">GraspIt!</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GraspIt! Installation - Windows with MSys / MinGW</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-install-mingw-msys-qt-and-cmake">Step 1. Install MinGW, MSYS, Qt and CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-install-basic-dependencies">Step 2. Install basic dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-install-coin-and-soqt">Step 3. Install Coin and SoQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-optional-install-bullet">Step 4 [optional]. Install bullet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5-compile-graspit">Step 5. Compile GraspIt!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation_ros.html">GraspIt! Installation - Ubuntu Linux with ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#the-main-window-and-controls">The main window and controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#the-camera-mode">The Camera mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#the-interaction-mode">The Interaction mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#grasp-example">Grasp example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#dynamics-example">Dynamics example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#the-menus">The menus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_files.html">Main Data Types and Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_files_bodies.html">Bodies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_files_bodies.html#body-files">Body Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_files_robots.html">Robots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_files_robots.html#degrees-of-freedom">Degrees of Freedom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_files_robots.html#kinematic-chains">Kinematic Chains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_files_worlds.html">Worlds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collision and Contact Detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#contacts">Contacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#software-implementation">Software implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#under-development-multi-threading">Under development: Multi-threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#under-development-object-cloning">Under development: Object cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="soft_fingers.html">Soft Fingers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="soft_fingers.html#analytical-contact-area-model">Analytical contact area model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grasp_quality.html">Grasp Quality Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grasp_quality.html#grasp-wrench-space-metrics">Grasp Wrench Space metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grasp_quality.html#under-development-grasp-force-optimization">Under development: Grasp Force Optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gfo.html">Grasp Force Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gfo.html#gfo-computations-through-the-main-interface">GFO computations through the main interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gfo.html#gfo-code-and-advanced-details">GFO code and advanced details</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grasp_planning.html">Grasp Planning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning.html#general-concepts-and-planner-types">General concepts and planner types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning.html#the-primitive-based-grasp-planner">The Primitive-based Grasp Planner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dynamics.html">The Dynamics Engine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dynamics.html#user-interaction-in-dynamics-mode">User interaction in dynamics mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamics.html#dof-controllers">DOF controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamics.html#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamics.html#under-development-dynamics-improvements">Under development: dynamics improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamics.html#bullet-dynamics">Bullet Dynamics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eigengrasps.html">Eigengrasps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eigengrasps.html#loading-eigengrasp-information">Loading Eigengrasp Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigengrasps.html#using-eigengrasps">Using eigengrasps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grasp_planning_eg.html">Grasp Planning II - Eigengrasp planning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning_eg.html#grasp-planning-in-eigengrasp-space">Grasp planning in Eigengrasp space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning_eg.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning_eg.html#search-energy">Search energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning_eg.html#optimization-method-and-planner-types">Optimization method and planner types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning_eg.html#practical-example-the-simulated-annealing-planner">Practical example: the Simulated Annealing planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grasp_planning_eg.html#practical-example-the-multithreaded-planner">Practical example: the Multithreaded planner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="joint_coupling.html">Joint Coupling and Underactuated Hands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="joint_coupling.html#rigid-coupling">Rigid coupling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint_coupling.html#breakaway-transmission">Breakaway transmission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint_coupling.html#under-development-compliant-joints">Under development: compliant joints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">GraspIt! Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab.html">Matlab interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="matlab.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlab.html#one-time-step">One time step</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware connections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#barrett-hand">Barrett Hand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#flock-of-birds">Flock of Birds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#cyberglove">Cyberglove</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cgdb.html">The Columbia Grasp Database - Part I</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cgdb.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb.html#caveats">Caveats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb.html#database-installation">Database installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb.html#graspit-interface-installation">GraspIt Interface Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cgdb.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgdb.html#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb.html#connecting-to-and-browsing-the-database">Connecting to and browsing the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb.html#geometric-similarity">Geometric similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb.html#database-backed-grasp-planning">Database-backed grasp planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cgdb_in_depth.html">The Columbia Grasp Database: Part II</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cgdb_in_depth.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb_in_depth.html#d-models">3D Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-models">Adding new models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb_in_depth.html#robotic-hands">Robotic Hands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-hands">Adding new hands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb_in_depth.html#grasps">Grasps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-grasp-sources">Adding new grasp sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-grasps">Adding new grasps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb_in_depth.html#neighbors">Neighbors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-distance-functions">Adding new distance functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-neighbors">Adding new neighbors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb_in_depth.html#alignments">Alignments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-alignment-methods">Adding new alignment methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgdb_in_depth.html#adding-new-alignments">Adding new alignments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cgdb_in_depth.html#stored-procedures">Stored Procedures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications and References</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GraspIt! User Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+
+        <div class="header-override">
+	  <center>
+          <a href="http://graspit-simulator.github.io"><img src="_static/logo.jpg"></a>
+	  </center>
+        </div>
+
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>GraspIt! Installation - Windows with MSys / MinGW</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/graspit-simulator/graspit-simulator.github.io_src/blob/master/source/installation_windows.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="graspit-installation-windows-with-msys-mingw">
+<h1>GraspIt! Installation - Windows with MSys / MinGW<a class="headerlink" href="#graspit-installation-windows-with-msys-mingw" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="step-1-install-mingw-msys-qt-and-cmake">
+<h2>Step 1. Install MinGW, MSYS, Qt and CMake<a class="headerlink" href="#step-1-install-mingw-msys-qt-and-cmake" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download the <a href="#id1"><span class="problematic" id="id2">`MinGW toolchain`_</span></a> (from the MinGW-w64 project) which is already set up for Qt and extract it, e.g. to C:/MinGW. See also the <a href="#id3"><span class="problematic" id="id4">`MinGW Qt wiki`_</span></a> page.</li>
+<li>Download <strong>Qt 4</strong> and run the installer (default destination is C:/Qt). We recommend to use <a class="reference external" href="https://download.qt.io/archive/qt/4.8/4.8.6/">Qt4 download from qt.io</a>.</li>
+</ol>
+<blockquote>
+<div>During installation, you have to locate the MinGW files previously extracted. See also this useful resource: <a class="reference external" href="https://github.com/iat-cener/tonatiuh/wiki/Installing%20Qt%20For%20Windows">Installing Qt for windows</a>.</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Add the <strong>MinGW</strong> <em>bin</em> directory to your PATH in Windows.</p>
+</li>
+<li><p class="first">Download and install <a class="reference external" href="https://cmake.org/download/">CMake for Windows</a>.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Install <strong>MSYS2</strong></dt>
+<dd><ul class="first last simple">
+<li>Download MSYS2 [from here](<a class="reference external" href="https://msys2.github.io/">https://msys2.github.io/</a>) and execute the installer.</li>
+<li>Open a MSYS shell and add the MinGW <em>bin</em> directory to PATH, eg. <code class="docutils literal"><span class="pre">echo</span> <span class="pre">&quot;export</span> <span class="pre">PATH=${PATH}:&lt;path-to-minGW-bin&gt;&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">.bashrc</span></code></li>
+<li><em>(optional)</em>: Install vim for MSYS shell with <code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">vim</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p><strong>General notes for compiling with cmake</strong></p>
+<p>CMake and MSYS do not get along that well. When you use cmake from within
+the MSYS command line, it will complain about sh.exe being in your PATH.
+So in general, the best is to use the cmake graphical interface for Windows
+to generate the makefiles, and then use the MSYS shell to compile.</p>
+<p><strong>If</strong> you explicitly want to try and run cmake from within a MSYS shell, you should set it to generate MinGW makefiles:
+``
+cd build
+cmake -G &#8220;MinGW Makefiles&#8221; ..
+``</p>
+<p><em>Note about the error with sh.exe</em></p>
+<p>This error will go away after re-running cmake.
+Be careful though, because this may lead to the wrong compilers being chosen, ie. using the MSYS
+gcc/g++ instead of the MinGW ones. You could try to explicitly set them with CMAKE_CXX_COMPILER and CMAKE_C_COMPILER.
+In this guide however, only instructions for using the Windows CMake GUI are given.</p>
+<p><em>Compiling</em></p>
+<p>For convenience, you may want to create a softlink to <em>ming32-make.exe</em> and call it <em>make.exe</em>. Alternatively, just run the mingw <em>make</em> explicitly:</p>
+<p><code class="docutils literal"><span class="pre">mingw32-make</span></code></p>
+</div>
+<div class="section" id="step-2-install-basic-dependencies">
+<h2>Step 2. Install basic dependencies<a class="headerlink" href="#step-2-install-basic-dependencies" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>lapack/blas: Install from source. See also <a class="reference external" href="http://icl.cs.utk.edu/lapack-for-windows/lapack/">LAPACK for Windows</a>.</dt>
+<dd><p class="first last">You can use the <a class="reference external" href="http://netlib.org/lapack/lapack.tgz">original LAPACK source</a>.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">qhull: Compile from source cloning the <a class="reference external" href="https://github.com/qhull/qhull">qhull repository</a>, and install.</p>
+</li>
+</ol>
+<p>Alternatively, try pacman to install the libraries.
+<code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-Ss</span> <span class="pre">lapack</span></code>
+will list the specific name of the package.
+Then install with
+<code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">&lt;name&gt;</span></code></p>
+<p>For qhull you may try the same: find out package name with <code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-Ss</span> <span class="pre">qhull</span></code> and install with <code class="docutils literal"><span class="pre">-S</span></code></p>
+</div>
+<div class="section" id="step-3-install-coin-and-soqt">
+<h2>Step 3. Install Coin and SoQt<a class="headerlink" href="#step-3-install-coin-and-soqt" title="Permalink to this headline">¶</a></h2>
+<p>A good set of instructions can be found on this github wiki: <a class="reference external" href="https://github.com/iat-cener/tonatiuh/wiki/Installing-SoQt-For-Windows">SoQT for Windows</a>.
+Please refer to the instructions given there for installation.</p>
+<p><a class="reference external" href="http://ascend4.org/Building_Coin3d_and_SoQt_on_MinGW.">Binaries for Coin and SoQt</a> exist as well.
+However they are not the most recent version any more.</p>
+<p>A few notes about the installation:</p>
+<p><em>Coin</em>
+-  Use the extra configure flag  <code class="docutils literal"><span class="pre">--build=x86_64-w64-mingw32</span></code>, or if you are not on x86_64, get the output of <code class="docutils literal"><span class="pre">gcc</span> <span class="pre">-dumpmachine</span></code>.</p>
+<blockquote>
+<div>Careful though not to use the MSYS build (it has to be the MinGW build).</div></blockquote>
+<ul class="simple">
+<li>As of May 2016, the source code had to be edited as suggested in the instructions linked above, except the change in <em>freetype.cpp</em> which was not necessary.</li>
+<li>You also may need to install diffutils: <code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">diffutils</span></code>.</li>
+<li>Add the <em>bin</em> directory of the resulting Coin install to your PATH environment variable.</li>
+</ul>
+<p><em>SoQt</em>
+- The environment variable QTDIR has to be set to the directory where all the Qt includes can be found.</p>
+</div>
+<div class="section" id="step-4-optional-install-bullet">
+<h2>Step 4 [optional]. Install bullet<a class="headerlink" href="#step-4-optional-install-bullet" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use bullet as physics engine in GraspIt!, you need to install it.
+This is very straight forward with cmake. Clone <a class="reference external" href="https://github.com/bulletphysics/bullet3">the bullet repository</a> and build with cmake.</p>
+</div>
+<div class="section" id="step-5-compile-graspit">
+<h2>Step 5. Compile GraspIt!<a class="headerlink" href="#step-5-compile-graspit" title="Permalink to this headline">¶</a></h2>
+<p>For compiling with CMake, the path to the <strong>MSYS bash.exe</strong> needs to be passed to cmake.
+This is required for cmake to be able to call <em>soqt-config</em> (which is not provided as Windows .exe file and needs to be run via bash).
+So you will need to pass the path to bash.exe (probably this is <code class="docutils literal"><span class="pre">&lt;your-msys-install&gt;/usr/bin</span></code>) with the CMAKE_PREFIX_PATH.</p>
+<p>Use the <strong>CMake GUI</strong> to generate the make files, as running cmake from the MSYS shell may be problematic (see also building with cmake explained in Step 1).</p>
+<ol class="arabic">
+<li><p class="first">Start CMake GUI.</p>
+</li>
+<li><p class="first">Select source and build directory, then click &#8220;Configure&#8221;.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Select &#8220;MinGW Makefiles&#8221;, and you may first try to stick to the default compilers.</dt>
+<dd><p class="first last"><em>If</em> it does not compile, or the default compilers causes other issues, try to re-run cmake and this time select &#8220;Specify native compilers&#8221;,
+choosing the fortran.exe/gcc.exe/g++.exe <em>from your MinGW install</em> (not MSYS).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The first configuration process may be unsuccessful because not all directories are included.</dt>
+<dd><p class="first last">Either way, you still need to add the following to your CMAKE_PREFIX_PATH:
+- the path to bash.exe
+- the path to the Qt files (QTDIR), and
+- any other dependency directories.
+You can add the paths by clicking on &#8220;New Entry&#8221; and add a variable named CMAKE_PREFIX_PATH, in which you add all paths, separated by semicolons.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Click &#8220;Configure&#8221; again. It should be printing something like <strong>&#8220;Result of soqt_config: ...&#8221; followed by a list of libraries</strong>.</dt>
+<dd><p class="first last"><em>If it does not print the libraries, it did not find bash.exe, and the makefiles have not been generated properly!!</em></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">After configuration was successful, click on &#8220;Generate&#8221;.</p>
+</li>
+</ol>
+<p>After the cmake files were generated in the GUI,
+go to the MSYS shell, change to the build directory, and type</p>
+<p><code class="docutils literal"><span class="pre">mingw32-make</span></code></p>
+<p>That&#8217;s all, you should be ready to go, try the <strong>graspit_simulator.exe</strong> in your build directory!</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation_ros.html" class="btn btn-neutral float-right" title="GraspIt! Installation - Ubuntu Linux with ROS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation_linux.html" class="btn btn-neutral" title="GraspIt! Installation - Ubuntu Linux" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright GNU Pulic License.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
